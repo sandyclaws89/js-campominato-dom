@@ -27,15 +27,13 @@ body{
     justify-content: space-between;
     padding: 0 80px;
     
-
-
 }
 
 .box{
     /* NON SONO RIUSCITO A DARE LA LARGHEZZA IN BASE ALLA SELEZIONE EASY,MEDIUM,HARD*/ 
-    width: calc(100%/10);
+    /* width: calc(100%/10);
     width: 60px;
-    height: 60px;
+    height: 60px; */
     border: solid black;
     background-color:#7fffd4;
     border-width: .1rem;
@@ -51,6 +49,8 @@ body{
     display: flex;
     /* margin-top: auto; */
     margin-bottom: auto;
+    width: 500px;
+    height: 500px;
 
 }
 
