@@ -86,6 +86,6 @@ footer > *{
     padding-left: 80px;
 }
 
-.bomb{
-    background-color: red;
+.selected{
+    background-color: green;
 }
