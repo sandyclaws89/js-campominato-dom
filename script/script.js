@@ -14,25 +14,24 @@ function play(){
     /*PULISCO AD OGNI CLICK IL CONTAINER*/
     container.innerHTML='';
 
-    /*DICHIARO ARRAY PER NUMERI CASUALI*/
-    let bombArray = [];
+/*DICHIARO ARRAY PER NUMERI CASUALI*/
+let bombArray = [];
+let arrCell = [];
 
     for(let n=1; n<=16; n++){
-        /*GENERO IL PRIMO NUMERO FUORI DAL CONTROLLO PERCHE' TANTO ALL'INIZIO L'ARRAY E' VUOTO*/
-        let bombNumber = (Math.floor(Math.random() * (16-0) )+1);
 
-        /*ORA GLI STO DICENDO DI ENTRARE NEL CICLO WHILE SOLO SE IL NUMERO RANDOM E' GIA INCLUSO NELL'Array, COSI FACENDO EVITO I NUMERI DOPPI*/
-        while (bombArray.includes(bombNumber)){
-            bombNumber = bombNumber = (Math.floor(Math.random() * (16 - 1) )+1);
-        }
-        /*ALLA FINE DEL CICLO POSSO AGGIUNGERE IL VALORE ALL'ARRAY*/
-        bombArray.push(bombNumber);
+    /*GENERO IL PRIMO NUMERO FUORI DAL CONTROLLO PERCHE' TANTO ALL'INIZIO L'ARRAY E' VUOTO*/
+    let bombNumber = (Math.floor(Math.random() * (16 - 0) )+1);
 
-        console.log(bombArray)
+    /*ORA GLI STO DICENDO DI ENTRARE NEL CICLO WHILE SOLO SE IL NUMERO RANDOM E' GIA INCLUSO NELL'Array, COSI FACENDO EVITO I NUMERI DOPPI*/
+    while (bombArray.includes(bombNumber)){
+          bombNumber = (Math.floor(Math.random() * (16 - 0) )+1);
+    }
+    /*ALLA FINE DEL CICLO POSSO AGGIUNGERE IL VALORE ALL'ARRAY*/
+    bombArray.push(bombNumber);
+
     }
 
-
-   
 
     /*VALUE TIPO DI DIFFICOLTA' SELEZIONATA (0 , 1 , 2) */
     let diffValue = parseInt(selectedElement.value);
@@ -43,15 +42,30 @@ function play(){
     /* NUMERO DI CELLE PER LATO DEL CONTAINER */
     let cellsSide = Math.sqrt(numCell);
 
+    let varElement;
+
     for (let i=1; i<=numCell; i++){
-        /*VARIABILE/ELEMENTO DIV*/
-        const varElement = document.createElement(`div`);
+
+        
+        arrCell.push(i);
+
+        if (bombArray[i]= i){
+            varElement = document.createElement(`div`);
+            varElement.classList.add('bomb');
+            varElement.append(i);
+            console.log (bombArray)
+           } else{
+             /*VARIABILE/ELEMENTO DIV*/
+        varElement = document.createElement(`div`);
 
         /*AGGIUNGO LA CLASSE ALLA VARIBILE/ELEMENTO*/
         varElement.classList.add('box');
         
         /*STAMPO DENTRO LA VARIABILE/ELEMENTO IL NUMERO DELLE CELLE QUINDI IL NUMERO DEL CONTATORE*/
         varElement.append(i);
+           }
+
+       
 
         /* DIMENSIONO LE CELLE DIVIDENDOLE PER LA RADICE QUADRATA DEL NUMERO TOT DI ELEMENTI, COSI FACENDO TROVO QUANTI CE NE SONO IN UN LATO , FLEXO VARELEMENT COSI DA CENTRARE LA I*/ 
         varElement.style.display='flex';
@@ -69,9 +83,14 @@ function play(){
         /*FUNZIONE CHE FA COLORARE AL CLICK LE CASELLE*/
         varElement.addEventListener('click', changeColor);
     
+           
+
         function changeColor() {
             this.classList.add(`selected`);
         }
+         
+       
+        
         
         /*-GENERARE 16 NUMERI CASUALI IN OGNI RANGE DI DIFFICOLTA, I NUMERI NON POSSONO ESSERE DUPLICATI*/
             /*
@@ -81,6 +100,7 @@ function play(){
             */
 
         /* SE IL NUMERO E' PRESENTE NELLA LISTA DEI NUMERI GENERATI CASUALMENTE E L'UTENTE CLICCA SU QUELLA CASELLA LA CASELLA DIVENTA ROSSA E LA PARTITA TERMINA*/
+        // ASSEGNO I VALORI 
 
         /*SE L'UTENTE VINCE LA PARTITA FINISCE COMUNQUE IL GIOCO*/
 
@@ -91,4 +111,8 @@ function play(){
         1- quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle
         2- quando si clicca su una bomba e finisce la partita, il software scopre tutte le bombe nascoste*/
     }
+        console.log(arrCell);
+        console.log(bombArray);
+
+        
 }

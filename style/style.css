@@ -89,3 +89,6 @@ footer > *{
 .selected{
     background-color: green;
 }
+
+.bomb {
+font-size: large;}
