@@ -27,6 +27,7 @@ body{
     justify-content: space-between;
     padding: 0 80px;
     
+    
 }
 
 .box{
@@ -49,8 +50,8 @@ body{
     display: flex;
     /* margin-top: auto; */
     margin-bottom: auto;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
 }
 
@@ -83,4 +84,8 @@ height: 83%;
 
 footer > *{
     padding-left: 80px;
+}
+
+.bomb{
+    background-color: red;
 }
